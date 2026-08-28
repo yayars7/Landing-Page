@@ -5,49 +5,6 @@
 function initSwipers() {
   
   // ============================================================
-  // HERO SWIPER
-  // ============================================================
-  const heroSwiper = new Swiper('.heroSwiper', {
-    loop: false,
-    autoplay: { delay: 4000, disableOnInteraction: false },
-    effect: 'fade',
-    fadeEffect: { crossFade: true },
-    speed: 800,
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    pagination: { el: '.swiper-pagination', clickable: true },
-  });
-
-  // ============================================================
-  // LIGHTBOX SWIPER
-  // ============================================================
-  const lightboxSwiper = new Swiper('.lightboxSwiper', {
-    loop: false,
-    effect: 'slide',
-    speed: 500,
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    keyboard: { enabled: true, onlyInViewport: false },
-    on: {
-      slideChange: function() {
-        const captions = [
-          '🌿 Eco Bee — Tropical Forest Raw Honey',
-          '🍯 Pure Honeycomb — Fresh from the forest',
-          '🌳 Sustainable Harvest — Ethical & eco-friendly',
-          '🍯 Raw Honey — Unfiltered & unheated',
-          '🌿 Forest Honey — From Malaysia\'s rainforest',
-          '🍯 Raw Honey — Golden Tropical Blend',
-          '🍯 Raw Honey — Pure Forest Harvest',
-          '🍯 Raw Honey — Premium Quality Honey'
-        ];
-        const captionEl = document.getElementById('lightboxCaption');
-        if (captionEl) {
-          captionEl.textContent = captions[this.realIndex] || captions[0];
-        }
-      }
-    }
-  });
-
-  // ============================================================
   // REVIEWS SWIPER
   // ============================================================
   const reviewsSwiper = new Swiper('.reviewsSwiper', {
@@ -120,8 +77,6 @@ function initSwipers() {
   // ============================================================
   // SAVE SWIPERS TO GLOBAL
   // ============================================================
-  window.heroSwiper = heroSwiper;
-  window.lightboxSwiper = lightboxSwiper;
   window.reviewsSwiper = reviewsSwiper;
   window.reviewZoomSwiper = reviewZoomSwiper;
   window.videoSwiper = videoSwiper;

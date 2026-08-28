@@ -390,52 +390,6 @@ function toggleFaq(element) {
 }
 
 // ============================================================
-// LIGHTBOX FUNCTIONS
-// ============================================================
-
-var lightbox = document.getElementById('lightbox');
-
-function openLightbox() {
-  var heroIndex = window.heroSwiper ? window.heroSwiper.realIndex : 0;
-  if (window.lightboxSwiper) {
-    window.lightboxSwiper.slideTo(heroIndex, 0);
-  }
-  var captions = [
-    '🌿 Eco Bee — Tropical Forest Raw Honey',
-    '🍯 Pure Honeycomb — Fresh from the forest',
-    '🌳 Sustainable Harvest — Ethical & eco-friendly',
-    '🍯 Raw Honey — Unfiltered & unheated',
-    '🌿 Forest Honey — From Malaysia\'s rainforest',
-    '🍯 Raw Honey — Golden Tropical Blend',
-    '🍯 Raw Honey — Pure Forest Harvest',
-    '🍯 Raw Honey — Premium Quality Honey'
-  ];
-  var captionEl = document.getElementById('lightboxCaption');
-  if (captionEl) {
-    captionEl.textContent = captions[heroIndex] || captions[0];
-  }
-  if (lightbox) {
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    if (window.lightboxSwiper) window.lightboxSwiper.keyboard.enable();
-  }
-}
-
-function closeLightbox() {
-  if (lightbox) {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-    if (window.lightboxSwiper) window.lightboxSwiper.keyboard.disable();
-  }
-}
-
-// Zoom hint click
-document.querySelector('.zoom-hint')?.addEventListener('click', function(e) {
-  e.stopPropagation();
-  openLightbox();
-});
-
-// ============================================================
 // SCROLL FUNCTIONS
 // ============================================================
 
@@ -562,11 +516,6 @@ document.addEventListener('keydown', function(e) {
     // Close review zoom
     if (document.getElementById('reviewZoomModal')?.classList.contains('active')) {
       closeReviewZoom();
-    }
-    
-    // Close lightbox
-    if (document.getElementById('lightbox')?.classList.contains('active')) {
-      closeLightbox();
     }
     
     // Close award zoom
