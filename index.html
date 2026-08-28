@@ -8,43 +8,664 @@
   <!-- FAVICON -->
   <link rel="icon" type="image/jpg" href="assets/images/logoecobee.jpg" />
   
-  <!-- FONTS - ECO BEE BRAND -->
-  <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- GOOGLE FONTS - Faculty Glyphic & Be Vietnam Pro -->
+  <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   
   <!-- FONT AWESOME -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   
   <!-- SWIPER -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   
-  <!-- STYLES -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/components.css" />
+  <!-- MAIN STYLES -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container" id="app">
-    <!-- Sections akan di-load oleh JavaScript -->
-    <div id="sections-container"></div>
 
-    <!-- ============================================ -->
-    <!-- FOOTER -->
-    <!-- ============================================ -->
-    <footer class="footer">
-      <div class="brand">
-        <img src="assets/images/logoecobee.jpg" alt="Eco Bee" />
-        Eco <span class="gold">Bee</span>
-      </div>
-      <p>From our tropical forest hives to your home.</p>
-      <p class="footer-copyright">© 2026 Eco Bee Shop (M) Sdn. Bhd Made in Malaysia.</p>
-    </footer>
+<!-- ============================================================ -->
+<!-- FLOATING CTA -->
+<!-- ============================================================ -->
+<div class="floating-cta" id="floatingCta">
+  <div class="offer-text">
+    <img src="assets/images/logoecobee.jpg" alt="Eco Bee" class="cta-logo" />
+    <span class="product-name">Eco Bee</span>
+    <span>Tropical Forest Raw Honey</span>
+    <span class="cta-price">RM289</span>
+  </div>
+  <div class="cta-buttons">
+    <a href="https://wa.me/60196226828?text=Hello%20Eco%20Bee%2C%20I%20want%20to%20order%20your%20honey." target="_blank" class="btn-cta-sm whatsapp-btn">
+      <i class="fab fa-whatsapp"></i> Order Now
+    </a>
+    <a href="#offer-pricing" class="btn-cta-sm">
+      <i class="fas fa-shopping-bag"></i> Buy Now
+    </a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- AUDIO PLAYER -->
+<!-- ============================================================ -->
+<div class="audio-player-wrapper">
+  <button class="audio-toggle-btn" id="audioToggle" onclick="toggleAudio()">
+    <i class="fas fa-volume-up"></i>
+    <span class="audio-label">Music On</span>
+  </button>
+  <audio id="bgAudio" loop preload="auto" muted>
+    <source src="assets/audio/bgmusic.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<!-- ============================================================ -->
+<!-- VIDEO HERO -->
+<!-- ============================================================ -->
+<section class="video-fullscreen" id="hero">
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/vidsakitperut.mp4" type="video/mp4">
+  </video>
+  <div class="overlay">
+    <div class="hero-brand">
+      <span class="brand-name">Eco <span class="gold">Bee</span></span>
+      <span class="brand-year">Since 2002</span>
+    </div>
+    <h1 class="trigger-headline">
+      <span class="trigger-line">Bloated After Meals?</span>
+      <span class="trigger-line">Stomach Not Feeling Right?</span>
+    </h1>
+    <p class="sub-text-overlay">Your stomach might be asking for help.</p>
+    <p class="sub-text-overlay second">Take our 30-second check to understand your digestive comfort level.</p>
+    <a href="#digestive-check" class="btn-scroll pulse-glow">
+      <i class="fas fa-arrow-right"></i> Start 30-Second Check
+    </a>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll to Discover</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- DIGESTIVE CHECK -->
+<!-- ============================================================ -->
+<section class="section-full bg-cream" id="digestive-check">
+  <div class="text-center">
+    <span class="section-label">Health Check</span>
+    <h2 class="section-title">30-Second Digestive <span class="gold shimmer-text">Comfort Check</span></h2>
+    <p class="section-sub mx-auto">Answer a few simple questions about your daily habits.</p>
   </div>
 
-  <!-- ============================================ -->
-  <!-- SCRIPTS -->
-  <!-- ============================================ -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="js/load-sections.js"></script>
-  <script src="js/swiper-config.js"></script>
-  <script src="js/main.js"></script>
+  <div class="digestive-check-wrapper">
+    <!-- Soalan 1 -->
+    <div class="check-question" data-question="1">
+      <div class="question-text">
+        <span class="question-number">01</span>
+        <p>Do you feel bloated after eating?</p>
+      </div>
+      <div class="question-options">
+        <button class="option-btn yes" onclick="selectAnswer(this, 1, true)">Yes</button>
+        <button class="option-btn no" onclick="selectAnswer(this, 1, false)">No</button>
+      </div>
+    </div>
+
+    <!-- Soalan 2 -->
+    <div class="check-question" data-question="2">
+      <div class="question-text">
+        <span class="question-number">02</span>
+        <p>Do you often feel discomfort when your stomach is empty?</p>
+      </div>
+      <div class="question-options">
+        <button class="option-btn yes" onclick="selectAnswer(this, 2, true)">Yes</button>
+        <button class="option-btn no" onclick="selectAnswer(this, 2, false)">No</button>
+      </div>
+    </div>
+
+    <!-- Soalan 3 -->
+    <div class="check-question" data-question="3">
+      <div class="question-text">
+        <span class="question-number">03</span>
+        <p>Do you burp or feel gassy easily?</p>
+      </div>
+      <div class="question-options">
+        <button class="option-btn yes" onclick="selectAnswer(this, 3, true)">Yes</button>
+        <button class="option-btn no" onclick="selectAnswer(this, 3, false)">No</button>
+      </div>
+    </div>
+
+    <!-- Soalan 4 -->
+    <div class="check-question" data-question="4">
+      <div class="question-text">
+        <span class="question-number">04</span>
+        <p>Do you feel heavy after dinner or before sleep?</p>
+      </div>
+      <div class="question-options">
+        <button class="option-btn yes" onclick="selectAnswer(this, 4, true)">Yes</button>
+        <button class="option-btn no" onclick="selectAnswer(this, 4, false)">No</button>
+      </div>
+    </div>
+
+    <!-- Button See My Result -->
+    <div class="check-result-wrapper">
+      <button class="btn-result" onclick="showResult()">
+        <i class="fas fa-chart-bar"></i> See My Result
+      </button>
+    </div>
+
+    <!-- RESULT POPUP -->
+    <div class="result-popup" id="resultPopup">
+      <div class="result-content">
+        <span class="result-close" onclick="closeResult()"><i class="fas fa-times"></i></span>
+        <div class="result-icon" id="resultIcon">😊</div>
+        <h3 id="resultTitle">Your Digestive Health</h3>
+        <p id="resultMessage">You have good digestive health! Keep it up with Eco Bee.</p>
+        <div class="result-score" id="resultScore">0/4 Yes</div>
+        <a href="#offer-pricing" class="btn-premium" onclick="closeResult()">
+          <i class="fas fa-arrow-right"></i> Shop Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PAIN POINTS -->
+<!-- ============================================================ -->
+<section class="section-full bg-white" id="pain-points">
+  <div class="text-center">
+    <span class="section-label">Do You Experience These?</span>
+    <h2 class="section-title">3 Signs Your Stomach <br><span class="gold shimmer-text">Needs Attention</span></h2>
+    <p class="section-sub mx-auto">If you answered YES to any of these, keep reading.</p>
+  </div>
+
+  <div class="pain-points-grid">
+    <div class="pain-card animate-fade-up delay-1">
+      <div class="pain-image-wrapper">
+        <img src="assets/images/pain-bloated.jpg" alt="Bloated After Meals" />
+        <div class="pain-icon"><i class="fas fa-exclamation-triangle"></i></div>
+      </div>
+      <h3>Bloated After Meals</h3>
+      <p>Your stomach feels tight and uncomfortable after eating.</p>
+      <div class="pain-tag">⚠️ Common Issue</div>
+    </div>
+
+    <div class="pain-card animate-fade-up delay-2">
+      <div class="pain-image-wrapper">
+        <img src="assets/images/pain-acid.jpg" alt="Acid Reflux" />
+        <div class="pain-icon"><i class="fas fa-exclamation-triangle"></i></div>
+      </div>
+      <h3>Acid Reflux</h3>
+      <p>Heartburn and acid rising up after meals or at night.</p>
+      <div class="pain-tag">⚠️ Common Issue</div>
+    </div>
+
+    <div class="pain-card animate-fade-up delay-3">
+      <div class="pain-image-wrapper">
+        <img src="assets/images/pain-constipation.jpg" alt="Constipation" />
+        <div class="pain-icon"><i class="fas fa-exclamation-triangle"></i></div>
+      </div>
+      <h3>Constipation</h3>
+      <p>Irregular bowel movements and difficulty passing stool.</p>
+      <div class="pain-tag">⚠️ Common Issue</div>
+    </div>
+  </div>
+
+  <div class="text-center" style="margin-top:30px;">
+    <a href="#solution" class="btn-premium pulse-glow">
+      <i class="fas fa-arrow-right"></i> Show Me the Solution
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOLUTION / STORY -->
+<!-- ============================================================ -->
+<section class="section-full bg-cream" id="solution">
+  <div class="solution-wrapper">
+    <div class="solution-left animate-slide-left">
+      <div class="solution-brand">
+        <span class="brand-name">ECO <span class="gold">BEE</span></span>
+        <span class="brand-tagline">100% pure &amp; original</span>
+      </div>
+      <h2 class="solution-title">
+        <span class="title-main">TROPICAL FOREST</span>
+        <span class="title-sub">WILD RAW HONEY</span>
+        <span class="title-bm">MADU HUTAN TROPIKA</span>
+      </h2>
+      <div class="solution-badges">
+        <span class="badge-item"><i class="fas fa-check-circle"></i> No Sugar Added</span>
+        <span class="badge-item"><i class="fas fa-check-circle"></i> 100% NATURAL</span>
+        <span class="badge-item"><i class="fas fa-check-circle"></i> Since 2002</span>
+      </div>
+      <p class="solution-description"><i class="fas fa-leaf"></i> Pure Honeycomb — Fresh from the forest</p>
+      <p class="solution-desc-text">Harvested from Malaysia's pristine tropical rainforest. 100% pure, raw, and naturally good for your digestive wellness.</p>
+      <div class="solution-story">
+        <p><strong>Eco Bee</strong> was founded in 2002. For over 20 years, we focus on natural honey from the pristine forest of Malaysia, using RAW honey to preserve natural enzymes and nutrients.</p>
+        <p>We use <strong>Mobile Bee Farming</strong> to move the beehives into forests in their natural blooming season.</p>
+      </div>
+      <a href="#offer-pricing" class="btn-premium pulse-glow"><i class="fas fa-shopping-bag"></i> Get Yours Now</a>
+    </div>
+    <div class="solution-right animate-scale">
+      <div class="solution-product-image">
+        <img src="assets/images/tropicalproduct.png" alt="Eco Bee Tropical Forest Raw Honey" />
+        <div class="product-badge">🇲🇾 Authentic Malaysian</div>
+        <div class="product-float-icons">
+          <div class="float-icon float-1"><i class="fas fa-leaf"></i></div>
+          <div class="float-icon float-2"><i class="fas fa-heart"></i></div>
+          <div class="float-icon float-3"><i class="fas fa-star"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- BEFORE VS AFTER -->
+<!-- ============================================================ -->
+<section class="section-full bg-white" id="before-after">
+  <div class="text-center">
+    <span class="section-label">See the Difference</span>
+    <h2 class="section-title">Before vs After <br><span class="gold shimmer-text">With Eco Bee</span></h2>
+    <p class="section-sub mx-auto">Real results from real people who switched to Eco Bee.</p>
+  </div>
+
+  <div class="before-after-grid">
+    <div class="before-card">
+      <div class="before-image-wrapper">
+        <img src="assets/images/before.png" alt="Before Eco Bee" />
+        <div class="before-label">❌ WITHOUT ECO BEE</div>
+      </div>
+      <ul class="before-list">
+        <li><i class="fas fa-times"></i> Frequent bloating</li>
+        <li><i class="fas fa-times"></i> Acid reflux after meals</li>
+        <li><i class="fas fa-times"></i> Irregular bowel movements</li>
+        <li><i class="fas fa-times"></i> Low energy</li>
+      </ul>
+    </div>
+
+    <div class="after-card">
+      <div class="after-image-wrapper">
+        <img src="assets/images/after.png" alt="After Eco Bee" />
+        <div class="after-label">✅ WITH ECO BEE</div>
+      </div>
+      <ul class="after-list">
+        <li><i class="fas fa-check"></i> Less bloating</li>
+        <li><i class="fas fa-check"></i> No acid reflux</li>
+        <li><i class="fas fa-check"></i> Regular bowel movements</li>
+        <li><i class="fas fa-check"></i> More energy</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trust-stats">
+    <div class="stat-item"><span class="stat-number">100K+</span><span class="stat-label">Happy Customers</span></div>
+    <div class="stat-item"><span class="stat-number">20+</span><span class="stat-label">Years of Excellence</span></div>
+    <div class="stat-item"><span class="stat-number">10+</span><span class="stat-label">International Awards</span></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TESTIMONIALS - Video & Reviews -->
+<!-- ============================================================ -->
+<section class="section-full bg-sage" id="testimonials">
+  <div class="text-center">
+    <span class="section-label">Real Stories</span>
+    <h2 class="section-title">What Our <span class="gold shimmer-text">Customers Say</span></h2>
+    <p class="section-sub mx-auto">Real people, real results with Eco Bee.</p>
+    <div class="trusted-badge float-animation">
+      <i class="fas fa-users"></i> Trusted by Over 100,000 Customers Worldwide
+    </div>
+  </div>
+
+  <!-- Video Testimonials - Click to Full Screen -->
+  <div class="video-testimonials-section">
+    <h3 class="video-testimonials-title"><i class="fas fa-video"></i> <span>Watch Their Stories</span></h3>
+    <div class="video-carousel-wrapper">
+      <div class="swiper videoSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 0)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni1.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 1)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni2.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 2)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni3.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 3)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni4.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 4)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni5.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 5)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni6.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 6)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni7.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 7)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni8.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+          <div class="swiper-slide"><div class="video-testimonial-item"><div class="video-wrapper-portrait" onclick="openVideoZoom(this, 8)"><video playsinline preload="metadata" muted loop><source src="assets/videos/testimoni9.mp4" type="video/mp4"></video><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo Reviews -->
+  <div class="featured-reviews-section">
+    <h3 class="featured-reviews-title"><i class="fas fa-star"></i> <span>Customer Reviews</span></h3>
+  </div>
+
+  <div class="reviews-carousel-wrapper">
+    <div class="swiper reviewsSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(0)"><img src="assets/images/212.jpg" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(1)"><img src="assets/images/213.jpg" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(2)"><img src="assets/images/214.jpg" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(3)"><img src="assets/images/review6.png" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(4)"><img src="assets/images/216.jpg" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(5)"><img src="assets/images/review1.png" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(6)"><img src="assets/images/review2.png" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(7)"><img src="assets/images/review3.png" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(8)"><img src="assets/images/review4.png" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+        <div class="swiper-slide"><div class="review-slide-image" onclick="openReviewZoom(9)"><img src="assets/images/review5.png" alt="Customer Review" /><div class="zoom-badge"><i class="fas fa-search-plus"></i></div></div></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- REVIEW ZOOM MODAL -->
+<!-- ============================================================ -->
+<div class="review-zoom-modal" id="reviewZoomModal">
+  <div class="modal-content">
+    <div class="modal-close" onclick="closeReviewZoom()"><i class="fas fa-times"></i></div>
+    <div class="swiper reviewZoomSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="assets/images/212.jpg" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/213.jpg" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/214.jpg" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/review6.png" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/216.jpg" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/review1.png" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/review2.png" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/review3.png" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/review4.png" alt="Review" /></div>
+        <div class="swiper-slide"><img src="assets/images/review5.png" alt="Review" /></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="caption-wrapper"><div class="caption">⭐ Customer Review — Real Experience</div></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- VIDEO ZOOM MODAL - Auto Full Screen -->
+<!-- ============================================================ -->
+<div class="video-zoom-modal" id="videoZoomModal" onclick="closeVideoZoom(event)">
+  <span class="modal-close" onclick="closeVideoZoom(event)"><i class="fas fa-times"></i></span>
+  <div class="video-zoom-content" onclick="event.stopPropagation();">
+    <div class="swiper videoZoomSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni1.mp4" type="video/mp4"></video></div>
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni2.mp4" type="video/mp4"></video></div>
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni3.mp4" type="video/mp4"></video></div>
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni4.mp4" type="video/mp4"></video></div>
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni5.mp4" type="video/mp4"></video></div>
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni6.mp4" type="video/mp4"></video></div>
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni7.mp4" type="video/mp4"></video></div>
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni8.mp4" type="video/mp4"></video></div>
+        <div class="swiper-slide"><video controls playsinline autoplay><source src="assets/videos/testimoni9.mp4" type="video/mp4"></video></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CERTIFICATIONS & TRUST BADGES -->
+<!-- ============================================================ -->
+<section class="section-full bg-white" id="trust-badges">
+  <div class="text-center">
+    <span class="section-label">Certified & Trusted</span>
+    <h2 class="section-title">Your Assurance of <span class="gold shimmer-text">Safety & Quality</span></h2>
+    <p class="section-sub mx-auto">Internationally recognized certifications for your peace of mind.</p>
+  </div>
+
+  <div class="authentic-repeat">
+    <div class="authentic-item"><span class="authentic-icon">✅</span><span class="authentic-text">100% Authentic Malaysian Honey</span></div>
+    <div class="authentic-item"><span class="authentic-icon">✅</span><span class="authentic-text">100% Authentic Malaysian Honey</span></div>
+    <div class="authentic-item"><span class="authentic-icon">✅</span><span class="authentic-text">100% Authentic Malaysian Honey</span></div>
+  </div>
+
+  <div class="cert-grid-images">
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/FSSC.png', 'FSSC 22000 Certified')"><img src="assets/images/FSSC.png" alt="FSSC" /><span class="cert-name">FSSC 22000</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/ISO.PNG', 'ISO 22000 Certified')"><img src="assets/images/ISO.PNG" alt="ISO" /><span class="cert-name">ISO 22000</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/HACCP.png', 'HACCP Certified')"><img src="assets/images/HACCP.png" alt="HACCP" /><span class="cert-name">HACCP</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/GMP.png', 'GMP Certified')"><img src="assets/images/GMP.png" alt="GMP" /><span class="cert-name">GMP</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/HALAL.png', 'Halal JAKIM Certified')"><img src="assets/images/HALAL.png" alt="Halal" /><span class="cert-name">Halal JAKIM</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/GMP NPRA.png', 'NPRA Certified')"><img src="assets/images/GMP NPRA.png" alt="NPRA" /><span class="cert-name">NPRA</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/Logo malaysia standard.png', 'Malaysia Standard')"><img src="assets/images/Logo malaysia standard.png" alt="Malaysia Standard" /><span class="cert-name">Malaysia Standard</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/MESTI.png', 'MeSTI Certified')"><img src="assets/images/MESTI.png" alt="MeSTI" /><span class="cert-name">MeSTI</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/AUTENTIK.png', 'Authentic Certified')"><img src="assets/images/AUTENTIK.png" alt="Authentic" /><span class="cert-name">Authentic</span></div>
+    <div class="cert-item-image" onclick="openCertZoom('assets/images/BUATAN MALAYSIA.png', 'Made in Malaysia')"><img src="assets/images/BUATAN MALAYSIA.png" alt="Made in Malaysia" /><span class="cert-name">Made in Malaysia</span></div>
+  </div>
+
+  <p class="cert-lab-note"><i class="fas fa-flask"></i> HPLC, GC, UV-VIS scientific laboratory testing ensures 100% pure honey quality</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- CERT ZOOM MODAL -->
+<!-- ============================================================ -->
+<div class="cert-zoom-modal" id="certZoomModal" onclick="closeCertZoom(event)">
+  <span class="modal-close" onclick="closeCertZoom(event)"><i class="fas fa-times"></i></span>
+  <img id="certZoomImage" src="" alt="Certificate" onclick="event.stopPropagation();" />
+  <div class="modal-caption" id="certZoomCaption">Certificate</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- AWARDS -->
+<!-- ============================================================ -->
+<section class="section-full bg-rose" id="awards">
+  <div class="text-center">
+    <span class="section-label">Awards & Recognition</span>
+    <h2 class="section-title">Multiple International <span class="gold shimmer-text">Awards</span></h2>
+    <p class="section-sub mx-auto">Recognized for excellence in honey production worldwide.</p>
+  </div>
+
+  <div class="awards-grid">
+    <div class="award-item" onclick="openAwardZoom('assets/images/islamicinnovation.jpg','Islamic Innovation')"><img src="assets/images/islamicinnovation.jpg" alt="Islamic Innovation" /><h5>Islamic Innovation</h5></div>
+    <div class="award-item" onclick="openAwardZoom('assets/images/ican2020.jpg','iCAN 2020')"><img src="assets/images/ican2020.jpg" alt="iCAN" /><h5>iCAN 2020 Top 10</h5></div>
+    <div class="award-item" onclick="openAwardZoom('assets/images/ican2020gold.jpg','iCAN Gold')"><img src="assets/images/ican2020gold.jpg" alt="iCAN Gold" /><h5>iCAN 2020 Gold</h5></div>
+    <div class="award-item" onclick="openAwardZoom('assets/images/pecipta19.jpg','PECIPTA')"><img src="assets/images/pecipta19.jpg" alt="PECIPTA" /><h5>PECIPTA'19</h5></div>
+    <div class="award-item" onclick="openAwardZoom('assets/images/inovacroatia2020.jpg','Inova Croatia')"><img src="assets/images/inovacroatia2020.jpg" alt="Inova" /><h5>Inova Croatia 2020</h5></div>
+    <div class="award-item" onclick="openAwardZoom('assets/images/itex2022.jpg','ITEX')"><img src="assets/images/itex2022.jpg" alt="ITEX" /><h5>ITEX 2022</h5></div>
+    <div class="award-item" onclick="openAwardZoom('assets/images/aseangold.jpg','Asean Records')"><img src="assets/images/aseangold.jpg" alt="Asean" /><h5>Asean Records</h5></div>
+    <div class="award-item" onclick="openAwardZoom('assets/images/asiasilver.jpg','Asia Records')"><img src="assets/images/asiasilver.jpg" alt="Asia" /><h5>Asia Records</h5></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AWARD ZOOM MODAL -->
+<!-- ============================================================ -->
+<div class="award-zoom-modal" id="awardZoomModal" onclick="closeAwardZoom(event)">
+  <span class="modal-close" onclick="closeAwardZoom(event)"><i class="fas fa-times"></i></span>
+  <img id="awardZoomImage" src="" alt="Award" onclick="event.stopPropagation();" />
+  <div class="modal-caption" id="awardZoomCaption">Award</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PARTNERS -->
+<!-- ============================================================ -->
+<section class="section-full bg-white" id="partners">
+  <div class="text-center">
+    <span class="section-label">Our Partners</span>
+    <h2 class="section-title">Collaboration <span class="gold shimmer-text">Partners</span></h2>
+    <p class="section-sub mx-auto">Trusted by leading institutions and universities.</p>
+  </div>
+
+  <div class="partners-grid">
+    <div class="partner-item"><img src="assets/images/monashuniversity.jpg" alt="Monash" /><span>Monash University</span></div>
+    <div class="partner-item"><img src="assets/images/utm.jpg" alt="UTM" /><span>UTM</span></div>
+    <div class="partner-item"><img src="assets/images/utar.jpg" alt="UTAR" /><span>UTAR</span></div>
+    <div class="partner-item"><img src="assets/images/upm.jpg" alt="UPM" /><span>UPM</span></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- OFFER / PRICING - Direct to Checkout -->
+<!-- ============================================================ -->
+<section class="section-full bg-cream" id="offer-pricing">
+  <div class="text-center">
+    <span class="section-label">Choose Your Package</span>
+    <h2 class="section-title">Start Your <span class="gold shimmer-text">Wellness Journey</span> Today</h2>
+    <p class="section-sub mx-auto">Select the perfect package for your needs.</p>
+  </div>
+
+  <!-- Countdown Timer -->
+  <div class="text-center">
+    <div class="countdown-wrapper">
+      <span class="countdown-label"><i class="fas fa-clock"></i> Special Offer Ends In:</span>
+      <div class="countdown-timer" id="countdownTimer">
+        <div class="countdown-block"><span class="countdown-number" id="hours">02</span><span class="countdown-text">Hours</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block"><span class="countdown-number" id="minutes">00</span><span class="countdown-text">Mins</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block"><span class="countdown-number" id="seconds">00</span><span class="countdown-text">Secs</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-badge">BEST VALUE</div>
+      <div class="offer-image-wrapper">
+        <div class="offer-image" onclick="openOfferZoom('assets/images/sachettrial.png', 'TRAVEL SET - Buy 2 Free 1')">
+          <img src="assets/images/sachettrial.png" alt="Travel Set" />
+          <div class="offer-zoom-hint"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+      <h3>TRAVEL SET</h3>
+      <p class="offer-desc">Buy 2 Free 1</p>
+      <div class="offer-price"><span class="price">RM298</span></div>
+      <a href="https://www.ecobeeshop.my/product_details/view/Tropical-Forest-Raw-Honey--15-Sachet---Buy-2-Free-1-Box-/197" target="_blank" class="btn-offer pulse-glow"><i class="fas fa-shopping-bag"></i> BUY NOW</a>
+    </div>
+
+    <div class="offer-card featured">
+      <div class="offer-badge">⭐ MOST POPULAR</div>
+      <div class="offer-image-wrapper">
+        <div class="offer-image" onclick="openOfferZoom('assets/images/trial2.png', 'TRIAL SET - Free 120g x 2 Bottle')">
+          <img src="assets/images/trial2.png" alt="Trial Set" />
+          <div class="offer-zoom-hint"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+      <h3>TRIAL SET</h3>
+      <p class="offer-desc">Free 120g x 2 Bottle</p>
+      <div class="offer-price"><span class="price">RM289</span></div>
+      <a href="https://www.ecobeeshop.my/product_details/view/PACKAGE-TROPICAL-FOREST-289-Package-289/177" target="_blank" class="btn-offer pulse-glow"><i class="fas fa-shopping-bag"></i> BUY NOW</a>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-badge">SAVE MORE</div>
+      <div class="offer-image-wrapper">
+        <div class="offer-image" onclick="openOfferZoom('assets/images/trial3.png', 'TREATMENT SET - Free 120g x 3 Bottle')">
+          <img src="assets/images/trial3.png" alt="Treatment Set" />
+          <div class="offer-zoom-hint"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+      <h3>TREATMENT SET</h3>
+      <p class="offer-desc">Free 120g x 3 Bottle</p>
+      <div class="offer-price"><span class="price">RM499</span></div>
+      <a href="https://www.ecobeeshop.my/product_details/view/PACKAGE-TROPICAL-FOREST-499-Package-499/181" target="_blank" class="btn-offer pulse-glow"><i class="fas fa-shopping-bag"></i> BUY NOW</a>
+    </div>
+  </div>
+
+  <div class="text-center" style="margin-top:20px;">
+    <p style="font-size:0.8rem;color:var(--warm-gray);">
+      <i class="fas fa-lock" style="color:var(--gold);"></i> Secure Checkout 
+      <span style="margin:0 10px;color:var(--border-light);">|</span>
+      <i class="fas fa-truck" style="color:var(--gold);"></i> Free Shipping Malaysia 
+      <span style="margin:0 10px;color:var(--border-light);">|</span>
+      <i class="fas fa-undo" style="color:var(--gold);"></i> 100% Satisfaction Guarantee
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- OFFER ZOOM MODAL -->
+<!-- ============================================================ -->
+<div class="offer-zoom-modal" id="offerZoomModal" onclick="closeOfferZoom(event)">
+  <span class="modal-close" onclick="closeOfferZoom(event)"><i class="fas fa-times"></i></span>
+  <div class="modal-content" onclick="event.stopPropagation();">
+    <img id="offerZoomImage" src="" alt="Offer" />
+    <div class="modal-caption" id="offerZoomCaption">Product</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- FAQ -->
+<!-- ============================================================ -->
+<section class="section-full bg-white" id="faq">
+  <div class="text-center">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Quick <span class="gold shimmer-text">Questions</span></h2>
+    <p class="section-sub mx-auto">Everything you need to know.</p>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item active">
+      <div class="faq-question" onclick="toggleFaq(this)"><span>Is Eco Bee 100% pure and natural?</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">Yes! No additives, no preservatives. 100% pure raw honey from tropical forests.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)"><span>Is it Halal certified?</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">Yes, JAKIM Halal certified.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)"><span>Who can consume this honey?</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">Adults and children aged 1 year and above. Especially good for digestive issues.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)"><span>Do you ship outside Malaysia?</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">Yes, we ship to Malaysia and Singapore.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CONTACT - Background Image, No Form -->
+<!-- ============================================================ -->
+<section class="contact-bg-section" id="contact" style="background-image:url('assets/images/contactbg.jpg');">
+  <div class="contact-overlay"></div>
+  <div class="contact-content-wrapper">
+    <div class="contact-text-center">
+      <div class="contact-badge pulse-glow"><i class="fas fa-heart"></i> We're Here to Help</div>
+      <h2 class="contact-heading">Ready to <span class="gold">Feel Better?</span></h2>
+      <p class="contact-sub">Start your digestive wellness journey today.</p>
+      <div class="contact-info-box">
+        <a href="https://wa.me/60196226828" target="_blank" class="contact-info-item"><i class="fab fa-whatsapp"></i><span>WhatsApp: +60 19 622 6828</span></a>
+        <a href="tel:+6072881982" class="contact-info-item"><i class="fas fa-phone"></i><span>Call: +607 288 1982</span></a>
+        <a href="mailto:sales@ecobeeshop.my" class="contact-info-item"><i class="fas fa-envelope"></i><span>Email: sales@ecobeeshop.my</span></a>
+      </div>
+      <div class="contact-shop-links">
+        <a href="https://shopee.com.my/ecobee.official" target="_blank" class="shop-link"><i class="fas fa-store"></i> Shopee</a>
+        <a href="https://www.lazada.com.my/shop/eco-bee-official/" target="_blank" class="shop-link"><i class="fas fa-store"></i> Lazada</a>
+        <a href="https://www.facebook.com/EcoBeeMY" target="_blank" class="shop-link"><i class="fab fa-facebook"></i> Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer class="footer">
+  <div class="brand">
+    <img src="assets/images/logoecobee.jpg" alt="Eco Bee" />
+    Eco <span class="gold">Bee</span>
+  </div>
+  <p>From our tropical forest hives to your home.</p>
+  <p class="footer-copyright">© 2026 Eco Bee Shop (M) Sdn. Bhd Made in Malaysia.</p>
+</footer>
+
+<!-- ============================================================ -->
+<!-- SCRIPTS -->
+<!-- ============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
