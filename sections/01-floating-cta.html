@@ -1,0 +1,58 @@
+<!-- ============================================ -->
+<!-- FLOATING CTA - Always Visible -->
+<!-- ============================================ -->
+<div class="floating-cta" id="floatingCta">
+  <div class="offer-text">
+    <img src="assets/images/logoecobee.jpg" alt="Eco Bee" class="cta-logo" />
+    <span class="product-name">Eco Bee</span>
+    <span>Tropical Forest Raw Honey</span>
+  </div>
+  <div class="cta-buttons">
+    <a href="https://wa.me/60196226828?text=Hello%20Eco%20Bee%2C%20I%20want%20to%20order%20your%20honey." target="_blank" class="btn-cta-sm whatsapp-btn">
+      <i class="fab fa-whatsapp"></i> Order Now
+    </a>
+    <a href="#offer-pricing" class="btn-cta-sm">
+      <i class="fas fa-shopping-bag"></i> Buy Now
+    </a>
+  </div>
+</div>
+
+<style>
+.floating-cta .cta-price {
+  color: var(--gold-light);
+  font-weight: 700;
+  font-size: 1rem;
+  background: rgba(200, 151, 0, 0.15);
+  padding: 2px 14px;
+  border-radius: 20px;
+}
+.floating-cta .cta-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.floating-cta .btn-cta-sm.whatsapp-btn {
+  background: #25D366;
+}
+.floating-cta .btn-cta-sm.whatsapp-btn:hover {
+  background: #1da851;
+  box-shadow: 0 8px 35px rgba(37, 211, 102, 0.5);
+}
+@media (max-width: 600px) {
+  .floating-cta .cta-price {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+  .floating-cta .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+  }
+  .floating-cta .btn-cta-sm {
+    width: 100%;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 0.6rem;
+  }
+}
+</style>

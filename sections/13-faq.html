@@ -1,0 +1,71 @@
+<!-- ============================================ -->
+<!-- FAQ - Short & Simple -->
+<!-- ============================================ -->
+<section class="section-full bg-white" id="faq">
+  <div class="text-center">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Quick <span class="gold shimmer-text">Questions</span></h2>
+    <p class="section-sub mx-auto">Everything you need to know.</p>
+  </div>
+  
+  <div class="faq-list">
+    <div class="faq-item active">
+      <div class="faq-question" onclick="toggleFaq(this)"><span>Is Eco Bee 100% pure and natural?</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">Yes! No additives, no preservatives. 100% pure raw honey from tropical forests.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)"><span>Is it Halal certified?</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">Yes, JAKIM Halal certified.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)"><span>Who can consume this honey?</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">Adults and children aged 1 year and above. Especially good for digestive issues.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)"><span>Do you ship outside Malaysia?</span><i class="fas fa-chevron-down"></i></div>
+      <div class="faq-answer">Yes, we ship to Malaysia and Singapore.</div>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq-list { max-width: 800px; margin: 28px auto 0; }
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+  padding: 18px 0;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+.faq-item:hover { padding-left: 16px; background: rgba(200, 157, 74, 0.03); border-radius: 4px; }
+.faq-item .faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--charcoal);
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+.faq-item .faq-question i {
+  color: var(--gold);
+  transition: all .4s ease;
+  font-size: 1rem;
+}
+.faq-item .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s ease, padding .4s ease;
+  color: var(--warm-gray);
+  font-size: .92rem;
+  line-height: 1.7;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+.faq-item.active .faq-answer { max-height: 300px; padding-top: 12px; }
+.faq-item.active .faq-question i { transform: rotate(180deg); color: var(--gold-light); }
+
+@media (max-width: 600px) {
+  .faq-item { padding: 12px 0; }
+  .faq-item .faq-question { font-size: 0.85rem; }
+  .faq-item .faq-answer { font-size: 0.8rem; }
+}
+</style>

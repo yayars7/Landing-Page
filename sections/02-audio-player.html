@@ -1,0 +1,136 @@
+<!-- ============================================ -->
+<!-- AUDIO PLAYER - Background Music (FIXED) -->
+<!-- ============================================ -->
+<div class="audio-player-wrapper">
+  <button class="audio-toggle-btn" id="audioToggle" onclick="toggleAudio()">
+    <i class="fas fa-volume-up"></i>
+    <span class="audio-label"></span>
+  </button>
+  <audio id="bgAudio" loop preload="auto" muted>
+    <source src="assets/audio/bgmusic.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+let isAudioPlaying = false;
+const audio = document.getElementById('bgAudio');
+const audioBtn = document.getElementById('audioToggle');
+
+function toggleAudio() {
+  if (isAudioPlaying) {
+    audio.pause();
+    audioBtn.innerHTML = '<i class="fas fa-volume-mute"></i><span class="audio-label">Music Off</span>';
+    isAudioPlaying = false;
+  } else {
+    // Unmute first then play
+    audio.muted = false;
+    audio.play().then(function() {
+      audioBtn.innerHTML = '<i class="fas fa-volume-up"></i><span class="audio-label">Music On</span>';
+      isAudioPlaying = true;
+    }).catch(function(e) {
+      console.log('Audio play error:', e);
+      // Try again with user interaction
+      audioBtn.innerHTML = '<i class="fas fa-volume-up"></i><span class="audio-label">Click to Play</span>';
+    });
+  }
+}
+
+// Auto-play on first user click (ANYWHERE on page)
+document.addEventListener('click', function() {
+  if (!isAudioPlaying && audio) {
+    audio.muted = false;
+    audio.play().then(function() {
+      isAudioPlaying = true;
+      if (audioBtn) {
+        audioBtn.innerHTML = '<i class="fas fa-volume-up"></i><span class="audio-label">Music On</span>';
+      }
+    }).catch(function(e) {
+      console.log('Autoplay blocked:', e);
+    });
+  }
+}, { once: true });
+
+// Also try on touch for mobile
+document.addEventListener('touchstart', function() {
+  if (!isAudioPlaying && audio) {
+    audio.muted = false;
+    audio.play().then(function() {
+      isAudioPlaying = true;
+      if (audioBtn) {
+        audioBtn.innerHTML = '<i class="fas fa-volume-up"></i><span class="audio-label">Music On</span>';
+      }
+    }).catch(function(e) {});
+  }
+}, { once: true });
+
+// Play when sections loaded (try autoplay with muted first)
+document.addEventListener('sectionsLoaded', function() {
+  setTimeout(function() {
+    audio.muted = true;
+    audio.play().then(function() {
+      // If autoplay works, unmute after user interaction
+      isAudioPlaying = true;
+      if (audioBtn) {
+        audioBtn.innerHTML = '<i class="fas fa-volume-up"></i><span class="audio-label">Music On</span>';
+      }
+    }).catch(function(e) {
+      console.log('Autoplay requires user interaction');
+      audio.muted = true;
+    });
+  }, 500);
+});
+</script>
+
+<style>
+.audio-player-wrapper {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9998;
+}
+.audio-toggle-btn {
+  background: rgba(35, 31, 32, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 151, 0, 0.3);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+.audio-toggle-btn:hover {
+  background: var(--gold);
+  transform: scale(1.05);
+  border-color: var(--gold);
+}
+.audio-toggle-btn i {
+  font-size: 1rem;
+}
+.audio-label {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 600px) {
+  .audio-player-wrapper {
+    top: 70px;
+    right: 10px;
+  }
+  .audio-toggle-btn {
+    padding: 6px 12px;
+    font-size: 0.6rem;
+  }
+  .audio-toggle-btn i {
+    font-size: 0.8rem;
+  }
+  .audio-label {
+    display: none;
+  }
+}
+</style>
