@@ -1,0 +1,147 @@
+<!-- ============================================ -->
+<!-- VIDEO HERO - Ikut Reference Boss -->
+<!-- ============================================ -->
+<section class="video-fullscreen" id="hero">
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/vidsakitperut.mp4" type="video/mp4">
+  </video>
+  <div class="overlay">
+    <!-- Eco Bee Since 2002 -->
+    <div class="hero-brand">
+      <span class="brand-name">Eco <span class="gold">Bee</span></span>
+      <span class="brand-year">Since 2002</span>
+    </div>
+
+    <!-- Trigger Text - BLOATED AFTER MEALS? -->
+    <h1 class="trigger-headline">
+      <span class="trigger-line">Bloated After Meals?</span>
+      <span class="trigger-line">Stomach Not Feeling Right?</span>
+    </h1>
+    
+    <p class="sub-text-overlay">Your stomach might be asking for help.</p>
+    <p class="sub-text-overlay second">Take our 30-second check to understand your digestive comfort level.</p>
+    
+    <!-- CTA Button -->
+    <a href="#digestive-check" class="btn-scroll pulse-glow">
+      <i class="fas fa-arrow-right"></i> Start 30-Second Check
+    </a>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll to Discover</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<style>
+/* Hero Brand */
+.hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  animation: fadeInUp 1s ease .2s forwards;
+  opacity: 0;
+}
+.hero-brand .brand-name {
+  font-family: 'Faculty Glyphic', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+}
+.hero-brand .brand-name .gold {
+  color: var(--gold-light);
+}
+.hero-brand .brand-year {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 2px;
+}
+
+/* Trigger Headline */
+.trigger-headline {
+  font-family: 'Faculty Glyphic', serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+  margin-bottom: 8px;
+  animation: fadeInUp 1s ease .4s forwards;
+  opacity: 0;
+  line-height: 1.2;
+}
+.trigger-headline .trigger-line {
+  display: block;
+}
+.trigger-headline .trigger-line:first-child {
+  color: var(--gold-light);
+}
+
+.video-fullscreen .overlay .sub-text-overlay {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  animation: fadeInUp 1s ease .6s forwards;
+  opacity: 0;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+.video-fullscreen .overlay .sub-text-overlay.second {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  animation: fadeInUp 1s ease .8s forwards;
+  margin-bottom: 22px;
+}
+.video-fullscreen .overlay .btn-scroll {
+  display: inline-block;
+  margin-top: 0;
+  background: var(--gold);
+  color: #fff;
+  padding: 16px 44px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all .4s ease;
+  animation: fadeInUp 1s ease 1.0s forwards;
+  opacity: 0;
+  box-shadow: 0 4px 30px rgba(200, 157, 74, 0.4);
+  border: none;
+  cursor: pointer;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+.video-fullscreen .overlay .btn-scroll:hover {
+  background: #A87A00;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 45px rgba(200, 157, 74, 0.6);
+}
+.video-fullscreen .overlay .btn-scroll i {
+  margin-right: 10px;
+}
+
+@media (max-width: 820px) {
+  .trigger-headline { font-size: 2.6rem; }
+  .hero-brand .brand-name { font-size: 1.8rem; }
+}
+@media (max-width: 600px) {
+  .trigger-headline { font-size: 1.8rem; }
+  .hero-brand .brand-name { font-size: 1.4rem; }
+  .hero-brand .brand-year { font-size: 0.6rem; padding: 2px 12px; }
+  .video-fullscreen .overlay .sub-text-overlay { font-size: 0.9rem; }
+  .video-fullscreen .overlay .sub-text-overlay.second { font-size: 0.8rem; }
+  .video-fullscreen .overlay .btn-scroll { padding: 12px 24px; font-size: 0.7rem; }
+}
+</style>
